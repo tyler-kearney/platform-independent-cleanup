@@ -31,7 +31,7 @@ def junkclean():
     os_name = platform.system() # Detects the OS
     
     if os_name == "Linux" or os_name == "Darwin":
-        password = input("Please enter your sudo password")
+        password = input("Please enter your sudo password: ")
     
     if os_name == "Windows":
         del_path = [
@@ -70,7 +70,7 @@ def junkclean():
         
         print("Junk files cleaned and system disk cleaned.")
     elif os_name == "Linux":
-        distro = input("Please enter a choice for your distro base: 1 for Debian based (apt), 2 for Fedora (dnf) or 3 for Arch (pacman). Press 4 for none of the above, this will do a default process")
+        distro = input("Please enter a choice for your distro base: 1 for Debian based (apt), 2 for Fedora (dnf) or 3 for Arch (pacman). Press 4 for none of the above, this will do a default process: \n\n")
         distro = int(distro)
         if distro == 1:
             cmd_with_pw(password, "sudo apt autoremove")
@@ -88,7 +88,7 @@ def junkclean():
         
         cmd_with_pw(password, "sudo logrotate -f /etc/logrotate.conf") # Clearing logs
     elif os_name == "Darwin":
-        has_brew = input("Does your system have brew installed? Y/N")
+        has_brew = input("Does your system have brew installed? Y/N: ")
         
         if has_brew == "Y" or has_brew == "y":
             brew = True
@@ -105,7 +105,7 @@ def junkclean():
         print("Unsupported OS")
     
     print("It may be best to reboot after this process.")
-    reboot = input("Would you like to reboot? 1 for yes, 2 for no")
+    reboot = input("Would you like to reboot? 1 for yes, 2 for no: ")
     reboot = int(reboot)
 
     if reboot == 1:
