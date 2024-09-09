@@ -8,6 +8,7 @@ import os
 def cmd_with_pw(pw, cmd):
     # Will try running this to bring the other commands that need a sudo password
     try:
+        cmd = cmd.split()
         proc = sp.Popen(cmd, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
         
         # Write the password to the stdin
