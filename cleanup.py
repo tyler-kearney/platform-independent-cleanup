@@ -1,7 +1,6 @@
 import platform
 import subprocess as sp
 import os
-import shutil
 
 # Cleans system junk files, adapting to the host OS
 
